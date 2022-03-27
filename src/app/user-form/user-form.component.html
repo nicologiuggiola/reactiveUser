@@ -1,0 +1,46 @@
+<div class="container-main">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+
+    <label for="gender">Gender: </label>
+    <select for="gender" formControlName="gender">
+      <option value="">Empty</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+<div class="subcontainer" formGroupName="userInfoForm">
+<label for="emial">Email: </label>
+<input id="emial" type="email" formControlName="email">
+
+<label for="password">Password: </label>
+<input id="password" type="password" formControlName="password" minlength="8">
+
+<label for="address">Address: </label>
+<input id="address" type="text" formControlName="address">
+
+<label for="phoneNumber">Phone Number: </label>
+<input id="phoneNumber" type="tel" formControlName="phoneNumber" minlength="8">
+</div>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+<p>Form Status: {{ profileForm.status }}</p>
+</form>
+</div>
+  <!-- <p>Value: {{ name.value }}</p> -->
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+</mat-form-field> -->
+
+<!-- <button type="button" (click)="updateName()">Update Name</button> -->
