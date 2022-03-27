@@ -2,9 +2,15 @@
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" formControlName="firstName">
+    <div *ngIf="profileForm.controls['firstName'].invalid && (profileForm.controls['firstName'].dirty || profileForm.controls['firstName'].touched)" class="alert">
+      Please enter First Name
+  </div>
 
     <label for="last-name">Last Name: </label>
     <input id="last-name" type="text" formControlName="lastName">
+    <div *ngIf="profileForm.controls['lastName'].invalid && (profileForm.controls['lastName'].dirty || profileForm.controls['lastName'].touched)" class="alert">
+      Please enter Last Name
+  </div>
 
     <label for="gender">Gender: </label>
     <select for="gender" formControlName="gender">
@@ -13,6 +19,9 @@
       <option value="Female">Female</option>
       <option value="Other">Other</option>
     </select>
+    <div *ngIf="profileForm.controls['gender'].invalid && (profileForm.controls['gender'].dirty || profileForm.controls['gender'].touched)" class="alert">
+      Missing Gender
+  </div>
 <div class="subcontainer" formGroupName="userInfoForm">
 <label for="emial">Email: </label>
 <input id="emial" type="email" formControlName="email">
@@ -30,17 +39,3 @@
 <p>Form Status: {{ profileForm.status }}</p>
 </form>
 </div>
-  <!-- <p>Value: {{ name.value }}</p> -->
-  <!-- <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-</mat-form-field> -->
-
-<!-- <button type="button" (click)="updateName()">Update Name</button> -->
